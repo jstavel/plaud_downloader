@@ -1,0 +1,22 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.12.4"}
+        clj-chrome-devtools/clj-chrome-devtools {:mvn/version "20220405"}
+        babashka/fs {:mvn/version "0.5.33"}}
+ :aliases
+ {:run-m {:main-opts ["-m" "plaud-downloader.plaud-downloader"]}
+  :run-x {:ns-default plaud-downloader.plaud-downloader
+          :exec-fn greet
+          :exec-args {:name "Clojure"}}
+  :build {:deps {io.github.clojure/tools.build
+                 {:mvn/version "0.10.11"}}
+          :ns-default build}
+  :test {:extra-paths ["test"]
+         :extra-deps {org.clojure/test.check {:mvn/version "1.1.2"}
+                      io.github.cognitect-labs/test-runner {:git/tag "v0.5.1" :git/sha "dfb30dd"}}}
+  :neil {:project {:name plaud_downloader/plaud_downloader}}
+  :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "1.7.0"}
+                       cider/cider-nrepl {:mvn/version "0.59.0"}
+                       refactor-nrepl/refactor-nrepl {:mvn/version "3.13.0"}}
+          :main-opts ["-m" "nrepl.cmdline" "--interactive" "--color" "--middleware" "[cider.nrepl/cider-middleware,refactor-nrepl.middleware/wrap-refactor]"]}
+  :kaocha {:extra-deps {lambdaisland/kaocha {:mvn/version "1.91.1392"}}
+           :main-opts ["-m" "kaocha.runner"]}}}
