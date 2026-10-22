@@ -3,8 +3,8 @@
         clj-chrome-devtools/clj-chrome-devtools {:mvn/version "20220405"}
         babashka/fs {:mvn/version "0.5.33"}}
  :aliases
- {:run-m {:main-opts ["-m" "plaud-downloader.plaud-downloader"]}
-  :run-x {:ns-default plaud-downloader.plaud-downloader
+ {:run-m {:main-opts ["-m" "plaud-downloader.core"]}
+  :run-x {:ns-default plaud-downloader.core
           :exec-fn greet
           :exec-args {:name "Clojure"}}
   :build {:deps {io.github.clojure/tools.build
@@ -12,7 +12,8 @@
           :ns-default build}
   :test {:extra-paths ["test"]
          :extra-deps {org.clojure/test.check {:mvn/version "1.1.2"}
-                      io.github.cognitect-labs/test-runner {:git/tag "v0.5.1" :git/sha "dfb30dd"}}}
+                      io.github.cognitect-labs/test-runner {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+         :main-opts ["-m" "cognitect.test-runner"]}
   :neil {:project {:name plaud_downloader/plaud_downloader}}
   :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "1.7.0"}
                        cider/cider-nrepl {:mvn/version "0.59.0"}

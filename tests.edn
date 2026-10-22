@@ -1,0 +1,5 @@
+#kaocha/v1
+{:tests [{:id :download
+          :test-paths ["test/plaud_downloader"]}
+         ]
+ }

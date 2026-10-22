@@ -28,3 +28,7 @@
 /classes
 /target
 .aider*
+
+# tool caches misplaced inside src/
+src/**/.clj-kondo/
+src/**/.lsp/
